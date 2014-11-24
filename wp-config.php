@@ -82,6 +82,7 @@ if ( !defined('ABSPATH') )
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
 
-define('WP_HOME','http://localhost');
-define('WP_SITEURL','http://localhost');
+/** fixme befre doing a docker build */
+define('WP_HOME','http://8.21.28.86');
+define('WP_SITEURL','http://8.21.28.86');
 
