@@ -9,7 +9,7 @@
 # mysql is the persistent storage and the only thing updated by this image
 # change the directory below to suit your needs
 # the ownership is determined by the apache user id in the Docker container
-MYSQL_DIR=~/mysql
+MYSQL_DIR=${PWD}/mysql
 
 if [ ! -d $DIR ]; then
     mkdir $DIR
@@ -19,4 +19,4 @@ if [ "$1" != "" ]; then
     mysite=$1
 fi
 
-docker run --rm -p 80:80 -v $MYSQL_DIR:/var/lib/mysql --env SITE=$mysite meri/wp
+docker run -d --privileged=true -p 80:80 -v $MYSQL_DIR:/var/lib/mysql --env SITE=$mysite meri/wp
